@@ -1,6 +1,6 @@
 Welcome to the NexJot Dashboard 
 
-a text editor frontend built using Vite and React. This project is part of the NexJot application suite, designed to enhance productivity and collaboration with a seamless user experience.
+A text editor frontend built using Vite and React. This project is part of the NexJot application suite, designed to enhance productivity and collaboration with a seamless user experience.
 
 About the Project
 
@@ -29,6 +29,7 @@ Folder Structure
 
 
 nexjot-dashboard/
+
 ├── node_modules/         # Dependencies
 ├── public/               # Static files
 │   ├── favicon.ico
@@ -53,6 +54,9 @@ Contact
 
 
 Author: Maimunah Elegushi
+
 Email: melissagushi50@gmail.com
+
 GitHub: Auspicious-1ife
+
 Feel free to reach out with any questions or suggestions!
