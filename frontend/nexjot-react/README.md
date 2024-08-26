@@ -1,5 +1,5 @@
-NexJot Dashboard
-Welcome to the NexJot Dashboard — a text editor frontend built using Vite and React. This project is part of the NexJot application suite, designed to enhance productivity and collaboration with a seamless user experience.
+Welcome to the NexJot Dashboard 
+a text editor frontend built using Vite and React. This project is part of the NexJot application suite, designed to enhance productivity and collaboration with a seamless user experience.
 
 About the Project
 NexJot Dashboard is a frontend application for managing and editing text documents in real time. It's designed with performance and user experience in mind, leveraging modern web development tools and practices.
