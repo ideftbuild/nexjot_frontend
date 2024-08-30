@@ -1,0 +1,69 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #4a90e2, #9013fe);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    flex-wrap: nowrap;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+header button {
+    background: none;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: transform 0.2s, color 0.2s, background 0.2s;
+}
+
+header button:hover,
+header button:focus {
+    transform: scale(1.1);
+    color: #4a90e2;
+    background: #ffffff;
+}
+
+.fa-bars {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header button {
+        font-size: 1.2rem;
+    }
+}
+/* add spin effect to the h1 tag in the header when hovered */
+@media (prefers-reduced-motion: no-preference) {
+    header h1:hover {
+        animation: h1-spin infinite 20s linear;
+    }
+}
+@keyframes h1-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

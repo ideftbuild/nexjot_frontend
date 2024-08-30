@@ -1,0 +1,97 @@
+/* Dashboard styles */
+
+/* Variables */
+:root {
+    --box-width: 250px;
+    --box-height: 200px;
+    --box-width-small: 200px;
+    --box-height-small: 100px;
+    --box-width-smaller: 150px;
+    --box-height-smaller: 100px;
+    --box-width-smallest: 100px;
+    --box-height-smallest: 70px;
+    --gap-size: 1rem;
+    --padding-size: 1.5rem;
+    --padding-size-small: 1.0rem;
+    --padding-size-smaller: 0.5rem;
+}
+
+main {
+    border: none;
+    max-width: 85%;
+    margin: 2rem auto;
+    padding: 0.5rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.documents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--box-width), 1fr));
+    gap: var(--gap-size);
+    color: black;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Document styles */
+.documents .document {
+    cursor: pointer;
+    height: var(--box-height);
+    box-shadow: 3px 3px 15px rgba(66, 66, 66, 0.5);
+    margin: 0.5rem;
+    padding: var(--padding-size);
+    border-radius: 5%;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.5rem, 1.5vw, 1rem);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.documents .document:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 20px rgba(66, 66, 66, 0.7);
+}
+
+.document .title-wrapper {
+    border-bottom: 1px dashed #989898;
+}
+
+.document .title,
+.document .content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-word; /* Break words to prevent overflow */
+}
+
+.content {
+    margin-top: 15px;
+}
+
+/* Media queries adjust sizes based on screen */
+@media (max-width: 750px) {
+    :root {
+        --box-height: var(--box-height-small);
+        --box-width: var(--box-width-small);
+        --padding-size: var(--padding-size-small);
+    }
+}
+@media (max-width: 620px) {
+    :root {
+        --box-height: var(--box-height-smaller);
+        --box-width: var(--box-width-smaller);
+        --padding-size: var(--padding-size-smaller);
+    }
+}
+@media (max-width: 420px) {
+    :root {
+        --box-height: var(--box-height-smallest);
+        --box-width: var(--box-width-smallest);
+        --padding-size: var(--padding-size-smaller);
+    }
+    .documents .title {
+        font-size: 0.5rem;
+        margin-right: 2.0rem;
+    }
+}
