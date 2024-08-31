@@ -1,11 +1,16 @@
 import '../styles/header.css'
-import { FaBars } from 'react-icons/fa';
+import DropdownMenu from './DropdownMenu';
 
+/**
+ * The header component
+ */
 export const Header = () => {
     return (
-        <header>
-            <button><FaBars className={"fa-bars"}/></button>
-            <h1>NexJot</h1>
+        <header className="header-container">
+            <h1 className="header-title">NexJot</h1>
+            <DropdownMenu />
         </header>
-    )
+    );
 }
+
+export default Header;

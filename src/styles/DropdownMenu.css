@@ -1,0 +1,68 @@
+//* styles/DropdownMenu.css */
+
+/* Container for the dropdown menu */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Styling for the dropdown trigger button */
+.dropdown-button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+}
+
+/* Style the bars for the dropdown menu */
+.dropdown-button .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  margin: 2px 0;
+  transition: 0.4s;
+}
+
+/* Content of the dropdown menu */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+/* Display the dropdown menu when open */
+.dropdown-container .dropdown-content {
+  display: block; 
+}
+
+.dropdown-content input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+/* Styling for buttons in the dropdown menu */
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover effect for buttons in the dropdown menu */
+.dropdown-content button:hover {
+  background-color: #555;
+}

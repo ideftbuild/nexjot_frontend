@@ -1,6 +1,9 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { Dashboard } from "./components/Dashboard";
-import './App.css'
+import './App.css';
+import { Header } from "./components/Header";
+
 
 function App() {
 
@@ -12,7 +15,7 @@ function App() {
             </Routes>
         </Router>
     </>
-  )
-}
+  );
+};
 
 export default App
