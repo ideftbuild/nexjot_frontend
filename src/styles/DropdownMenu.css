@@ -4,6 +4,7 @@
 .dropdown-container {
   position: relative;
   display: inline-block;
+  margin-left: auto;
 }
 
 /* Styling for the dropdown trigger button */
@@ -44,6 +45,7 @@
   display: block; 
 }
 
+
 .dropdown-content input {
   width: 100%;
   padding: 8px;
@@ -66,3 +68,5 @@
 .dropdown-content button:hover {
   background-color: #555;
 }
+
+
