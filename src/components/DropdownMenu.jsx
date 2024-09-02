@@ -28,7 +28,7 @@ const DropdownMenu = () => {
 
   return (
     <div className="dropdown-container">
-      <div className="dropdown-button" onClick={toggleDropdown}>
+      <div className="dropdown-button" onClick={toggleDropdown} role="button" aria-label="toggle dropdown">
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
