@@ -4,7 +4,7 @@ import '../styles/DropdownMenu.css';
 
 /**
  * DropdownMenu component to handle navigation and other actions.
- * Contains options for creating a new document, 
+ * Contains options for creating a new document,
  */
 const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ const DropdownMenu = () => {
 
   /**
    * Handles the navigation to the new document page.
-   * Redirects the user to the specifie path. 
+   * Redirects the user to the specifie path.
    */
   const handleCreateNewDocument = () => {
     navigate('/new'); // Navigate to new document page

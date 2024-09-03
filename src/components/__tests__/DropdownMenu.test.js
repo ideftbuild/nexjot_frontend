@@ -6,6 +6,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
+/**
+ * Test suite for the DropdownMenu component
+ */
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
