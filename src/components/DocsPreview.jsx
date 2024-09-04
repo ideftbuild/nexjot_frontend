@@ -1,28 +1,29 @@
-import { fetchDocuments } from '../services/fetchDocuments.js';
-import {useDispatch, useSelector} from 'react-redux';
-import {useEffect} from 'react';
-import { addDocuments } from '../redux/reducer.js';
+// import {useDispatch, useSelector} from 'react-redux';
+// import {useEffect} from 'react';
+// import { addDocuments } from '../redux/reducer.js';
 import '../styles/dashboard.css'
 import {useNavigate} from "react-router-dom";
+import {documentService} from "../services/document-service.js";
 
 
-export const Document = () => {
-    const dispatch = useDispatch();
+/**
+ * Preview all users documents
+ *
+ * @returns {JSX.Element}
+ */
+export const DocsPreview = () => {
 
-    useEffect(() => {
-        dispatch(addDocuments(addDocuments(fetchDocuments())));
-    }, [dispatch]);
-
-    const documents = useSelector(state => state.documents.documents.payload)
+    // const documents = useSelector(state => state.documents.documents.payload)
+    const documents = documentService();
     const navigate = useNavigate();
 
+    // navigate to the document where the user clicked
     function openDocumentForEdit (document) {
         navigate(`/document/${document.id}`);
     }
-
-    console.log("documents => ", documents);
+    // user has no document
     if (!documents || !Array.isArray(documents)) {
-        return <p>No documents available</p>;
+        return <p>Document Not Found</p>
     }
 
     return (
@@ -34,7 +35,6 @@ export const Document = () => {
                         <div className={'content'}>{doc.content}</div>
                     </div>
                 ))}
-                {/*<RenderDocuments documents={documents}/>*/}
             </div>
         </section>
     )

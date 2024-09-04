@@ -1,0 +1,56 @@
+.edit-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 75vh;
+    width: 75%;
+    padding-inline: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.text-box {
+    display: block;
+    flex-grow: 1;
+    width: 100%;
+    border: 1px solid #151414;
+    border-radius: inherit;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+.text-box-active {
+    outline: none;
+    border: 1px solid #3bff3b; /* Very light green border color */
+}
+
+#title {
+    display: block;
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 50vw;
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.3);
+    color: #fffdfd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: none;
+    text-align: center;
+}
+
+@media (max-width: 650px) {
+    #title {
+        font-size: 2.0rem;
+    }
+
+    .edit-box {
+        width: 85%;
+    }
+}
+@media (max-width: 560px) {
+    #title {
+        font-size: 1.2rem;
+    }
+}
