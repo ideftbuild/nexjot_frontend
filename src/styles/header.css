@@ -1,6 +1,7 @@
 header {
     display: flex;
     align-items: center;
+    top: 0;
     justify-content: space-between;
     padding: 1rem 2rem;
     background: linear-gradient(135deg, #4a90e2, #9013fe);
@@ -10,7 +11,7 @@ header {
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: clamp(1rem, 2vw, 2rem);
     font-weight: bold;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -20,11 +21,10 @@ header h1 {
 header button {
     background: none;
     border: 2px solid #ffffff;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #ffffff;
-    font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     transition: transform 0.2s, color 0.2s, background 0.2s;
 }
 
@@ -35,22 +35,14 @@ header button:focus {
     background: #ffffff;
 }
 
-.fa-bars {
-    margin-right: 0.5rem;
-}
-
 @media (max-width: 600px) {
     header {
-        flex-direction: row;
-        justify-content: space-between;
+        padding: 0.5em 1em;
+        top: 0;
+        margin: 0;
     }
-
-    header h1 {
-        font-size: 1.5rem;
-    }
-
     header button {
-        font-size: 1.2rem;
+        padding: 0.5rem;
     }
 }
 /* add spin effect to the h1 tag in the header when hovered */
@@ -66,4 +58,8 @@ header button:focus {
   to {
     transform: rotate(360deg);
   }
+}
+
+@media (max-width: 620px) {
+
 }

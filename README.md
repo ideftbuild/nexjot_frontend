@@ -25,7 +25,7 @@ To use the NexJot Dashboard youu can:
 
 Search for Documents: Use the search bar to find specific documents.
 Edit Documents: Click on any document to start editing in real time.
-Create New Documents: Use the "New Document" button to start fresh.
+Create New Documents: Use the "New DocsPreview" button to start fresh.
 
 ## Folder Structure
 
