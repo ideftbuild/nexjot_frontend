@@ -3,20 +3,20 @@
 /* Flexbox container for the header */
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    top: 0;
+    justify-content: space-between;
     padding: 10px 20px;
-    background-image: linear-gradient(to right, #7a288a, #4a90e2); 
+    background-image: linear-gradient(to right, #7a288a, #4a90e2);
     border-radius: 10px;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the header title */
-.header-title {
-    margin: 0;
-    font-size: 48px;
+.header-title, header h1 {
+    font-size: clamp(1rem, 2vw, 2rem);
     font-weight: bold;
+    margin: 0;
     color: white;
     order: 2;
 }
@@ -25,4 +25,48 @@
     position: relative;
     display: inline-block;
     order: 1;
+header button {
+    background: none;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 1rem;
+    transition: transform 0.2s, color 0.2s, background 0.2s;
+}
+
+header button:hover,
+header button:focus {
+    transform: scale(1.1);
+    color: #4a90e2;
+    background: #ffffff;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 0.5em 1em;
+        top: 0;
+        margin: 0;
+    }
+    header button {
+        padding: 0.5rem;
+    }
+}
+/* add spin effect to the h1 tag in the header when hovered */
+@media (prefers-reduced-motion: no-preference) {
+    header h1:hover {
+        animation: h1-spin infinite 20s linear;
+    }
+}
+@keyframes h1-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 620px) {
+
 }
