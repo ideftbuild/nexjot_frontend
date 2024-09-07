@@ -6,7 +6,7 @@ import '../styles/DropdownMenu.css';
  * DropdownMenu component to handle navigation and other actions.
  * Contains options for creating a new document,
  */
-const DropdownMenu = () => {
+export const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 

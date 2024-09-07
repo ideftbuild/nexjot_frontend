@@ -1,6 +1,12 @@
 import '../styles/header.css'
-import DropdownMenu from './DropdownMenu';
+import {DropdownMenu} from './DropdownMenu';
 
+/**
+ * Header component for the dashboard
+ * Contains the title and the dropdown menu
+ *
+ * @returns {Element} the header of the dashboard
+ */
 export const DashboardHeader = () => {
     return (
         <header className="header-container">
@@ -10,4 +16,4 @@ export const DashboardHeader = () => {
     );
 }
 
-export default Header;
+export default DashboardHeader;

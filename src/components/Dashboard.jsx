@@ -1,7 +1,7 @@
 import { Filter } from './Filter.jsx';
 import { DashboardHeader } from './DashboardHeader.jsx';
 import { DocsPreview } from './DocsPreview.jsx'
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
 // import { addDocuments } from "../redux/reducer.js";
 // import { getDocuments } from "../services/document-service.js";
