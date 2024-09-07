@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/DropdownMenu.css';
+import { FaBars } from 'react-icons/fa';
 
 /**
  * DropdownMenu component to handle navigation and other actions.
- * Contains options for creating a new document,
+ *
+ * - The dropdown menu is toggled by clicking the `FaBars` icon.
+ * - Each button in the dropdown menu navigates to a specific route.
+ *
+ * @component
+ * @returns {JSX.Element}
  */
 export const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,17 +34,22 @@ export const DropdownMenu = () => {
 
   return (
     <div className="dropdown-container">
-      <div className="dropdown-button" onClick={toggleDropdown} role="button" aria-label="toggle dropdown">
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+      <div className="dropdown-button"
+        onClick={toggleDropdown}
+        role="button"
+        aria-label={isOpen ? "Close menu" : "Open menu"} /* Aria label for accessibility */
+        aria-expanded={isOpen}>
+        {/* The FaBars icon is used as the dropdown button. */}
+         <FaBars size={34} />
       </div>
       {isOpen && (
         <div className="dropdown-content">
-          <button onClick={handleCreateNewDocument}>New Document</button>
-          <button onClick={() => navigate('/dashboard')}>Dashboard</button>
-          <button onClick={() => navigate('/accounts')}>Login</button>
-          <button onClick={() => navigate('/login')}>Settings</button>
+          role="menu"
+          aria-label="Dropdown options"
+          <button onClick={handleCreateNewDocument} role="menuitem">New Document</button>
+          <button onClick={() => navigate('/user-dashboard')} role="menuitem">Dashboard</button>
+          <button onClick={() => navigate('/user-profile')} role="menuitem">Profile</button>
+          <button onClick={() => navigate('/login')} role="menuitem">Logout</button>
         </div>
       )}
     </div>

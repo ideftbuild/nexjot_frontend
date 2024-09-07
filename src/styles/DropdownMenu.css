@@ -44,11 +44,6 @@
   z-index: 1;
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-
 /* Styling for buttons in the dropdown menu */
 .dropdown-content button {
   display: block;
@@ -63,7 +58,7 @@
 
 /* Hover effect for buttons in the dropdown menu */
 .dropdown-content button:hover {
-  background-color: #555;
+  background-color: #555; /* Dark grey on hover */
 }
 
 
