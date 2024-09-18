@@ -24,12 +24,12 @@ export const Dashboard = () => {
     // }, [dispatch]);
 
     return (
-        <>
+        <div className={'dashboard-wrapper'}>
             <DashboardHeader/>
             <main>
                 <Filter/>
                 <DocsPreview/>
             </main>
-        </>
+        </div>
     );
 }

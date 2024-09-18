@@ -5,11 +5,9 @@ import LandingPage from './components/LandingPage';
 
 
 import './App.css'
-// import {useDispatch} from "react-redux";
-// import {useEffect} from "react";
-// import {addDocuments} from "./redux/reducer.js";
-// import {getDocuments} from "./services/document-service.js";
 import { ErrorPage } from './components/ErrorPage.jsx'
+import OAuth2RedirectHandler from "./components/OAuth2RedirectHandler.jsx";
+import OAuth2Login from "./components/Login.jsx";
 
 
 /**
@@ -22,15 +20,6 @@ import { ErrorPage } from './components/ErrorPage.jsx'
  * FIX: Documents should only be fetched for the logged-in user not all user
  */
 function App() {
-    // const dispatch = useDispatch();
-    // Fetch documents on app load
-    // FIX: useEffect shouldn't be used here since not all user who access here has an account
-    // useEffect(() => {
-    //     async function fetchDocuments() {
-    //         dispatch(addDocuments(addDocuments(await getDocuments())));
-    //     }
-    //     fetchDocuments().then(() => null);
-    // }, [dispatch]);
 
     return (
     <>
@@ -40,10 +29,12 @@ function App() {
                 <Route path={'/dashboard'} element={<Dashboard />} />
                 <Route path={'/document/:id'} element={<DocEdit />} />
                 <Route path={'/error_page'} element={<ErrorPage />} />
+                <Route path={'/login'} element={<OAuth2Login />} />
+                <Route path={'/oauth2/redirect'} element={<OAuth2RedirectHandler />} />
             </Routes>
         </Router>
     </>
-  )
+  );
 }
 
 export default App
