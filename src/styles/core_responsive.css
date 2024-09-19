@@ -1,0 +1,236 @@
+/*
+Author: GreyLoft
+*/
+@media(min-width: 1500px){
+	
+	.featured-area:before{
+		width: 36%;
+		height: 100%;
+	}
+	.featured-area:after {
+		width: 40%;
+		height: 69%;
+	}
+}
+
+
+@media (min-width: 992px) and (max-width: 1200px) {
+	.banner-content .banner-title{
+		font-size: 60px;
+	}
+	
+	.hidden-title{
+		font-size: 140px;
+	}
+	
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.section-p-120{
+		padding: 80px 0;
+	}
+	/*-------------- menu ------------*/
+	.navigation-portrait .nav-menus-wrapper {
+		background-color: #010029;
+	}
+	.nav-toggle:before {
+		background-color: #f5f5f5;
+		box-shadow: 0 0.5em 0 0 #e4e4e4, 0 1em 0 0 #ffffff;
+	}
+	.navigation-portrait .nav-menu > li{
+		border-color: #000;
+	}
+	/*------------------- banner ---------------*/
+	.banner-item{
+		min-height: inherit;
+	}
+	.banner-content .banner-title {
+		font-size: 55px;
+		margin-bottom: 26px;
+	}
+	.banner-image-item .banner-ico{
+		max-width: 45px;
+	}
+
+	.column-title{
+		font-size: 30px;
+	}
+	.section-title-item .section-title {
+		font-size: 30px;
+		margin-bottom: 60px;
+		line-height: 35px;
+	}
+	.main-fetured-item{
+		padding: 80px 15px;
+	}
+	.main-fetured-item .icon-featured-item {
+		padding: 0 0px;
+	}
+	.feature-title{
+		font-size: 17px;
+	}
+	.hidden-title{
+		font-size: 114px;
+	}
+	/*------------- featured ---------*/
+	.featured-sec {
+		padding-bottom: 80px;
+	}
+	.section-padding {
+		padding: 78px 0;
+	}
+
+	.footer-widget{
+		margin-bottom: 40px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+
+	.section-padding {
+		padding: 60px 0 0;
+	}
+	.section-p-120 {
+		padding: 60px 0;
+	}
+	/*---------- display none opt ----*/
+	.featured-area:before,
+	.featured-poligonal-img,
+	{
+		display: none;
+	}
+
+	/*---------- section title -------*/
+	.xs-section-title{
+		margin-bottom: 10px;
+	}
+	.section-title-item .section-title {
+		font-size: 26px;
+		margin-bottom: 40px;
+		line-height: 36px;
+	}
+	/*--------------- menu ----------*/
+	.navigation-portrait .nav-menus-wrapper{
+		background-color: #010029;
+	}
+	.navigation-portrait .nav-menu > li {
+		border-top: solid 1px #0f183a;
+		border-bottom: 1px solid #000;
+	}
+	.nav-toggle:before {
+		background-color: #f5f5f5;
+		box-shadow: 0 0.5em 0 0 #e4e4e4, 0 1em 0 0 #ffffff;
+	}
+	/*---------- banner area ------*/
+	.banner-item {
+		min-height: 0;
+		padding-top: 131px;
+
+	}
+	.banner-content .banner-title {
+		font-size: 30px;
+		margin-bottom: 17px;
+		line-height: 45px;
+	}
+	.banner-content p,
+	.blockcain-top{
+		padding: 0;
+	}
+	.banner-image-item{
+		margin: 20px 0 0;
+	}
+	.banner-image-item .banner-img{
+		width: 100%;
+	}
+	.banner-image-item .banner-ico{
+		max-width: 28px;
+		animation: bounce 1s ease-in-out 0s alternate;
+	}
+
+	.main-fetured-item{
+		padding: 50px 0;
+	}
+	.blockcain-top-sec {
+		padding: 50px 0;
+	}
+	.column-title {
+		font-size: 26px;
+		line-height: 42px;
+	}
+	.blockcain-top-content p:last-child{
+		margin-bottom: 0;
+	}
+	.main-fetured-item .icon-featured-item img {
+		margin-bottom: 30px;
+	}
+	.main-fetured-item .icon-featured-item {
+		padding: 0 80px;
+		margin-bottom: 40px;
+	}
+
+	.main-fetured-item [class*='col-']:last-of-type .icon-featured-item{
+		margin-bottom: 0;
+	}
+	
+	/*------------- footer area -----*/
+	.footer-area{
+		padding: 50px 0;
+	}
+	.footer-widget{
+		margin-bottom: 40px;
+	}
+	.footer-widget.support{
+		margin-left: 0;
+	}
+	.footer-widget .widget-title {
+		font-size: 20px;
+		margin-bottom: 18px;
+	}
+	.widget-subscibe .subscribe-email{
+		margin-top: 10px;
+	}
+
+}
+@media only screen and (max-width: 567px) {
+	/*----------- banner animation -----*/
+	.banner-image-item .banner-ico{
+		max-width: 22px;
+
+	}
+	.banner-ico.banner-ico-1 {
+		left: 19.8%;
+		top: 32%;
+	}
+	.banner-ico.banner-ico-2 {
+		left: 29%;
+		top: 0;
+	}
+	.banner-ico.banner-ico-4 {
+		right: 31.2%;
+		top: 7%;
+	}
+	.banner-ico.banner-ico-3 {
+		top: 22%;
+		left: 50%;
+	}
+	.banner-ico.banner-ico-5 {
+		right: 14.8%;
+		top: 28%;
+
+	}
+
+/*---- featured area -----------*/
+	.main-fetured-item .icon-featured-item {
+		padding: 0 20px;
+		margin-bottom: 40px;
+	}
+	/*----------- footer area ------*/
+	.footer-area [class*='col-']:last-of-type .footer-widget{
+		margin-bottom: 0;
+	}
+
+	.flag-lists li {
+		display: block;
+		text-align: left;
+		margin-bottom: 18px;
+	}
+}

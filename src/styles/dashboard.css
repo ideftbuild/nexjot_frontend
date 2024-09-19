@@ -4,109 +4,117 @@
 :root {
     --box-width: 250px;
     --box-height: 200px;
-    --gap-size: 1rem;
-    --padding-size: 1.5rem;
+    --gap-size: 1.5rem; /* Increased gap size for breathing space */
+    --padding-size: 1.25rem; /* Slightly reduced padding to avoid bulkiness */
+    --primary-color: #007bff; /* Consider a primary color for consistency */
+    --background-color: #f4f6f9; /* Light background to reduce heaviness */
+    --shadow-color: rgba(0, 0, 0, 0.05); /* Softer shadows */
 }
 
 main {
-    border: none;
     width: 90%;
-    margin: 0 auto;
-    background-color: #f5f5f5;
+    margin: 2rem auto; /* Added some margin for breathing space */
+    background-color: var(--background-color); /* Lighter background */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--shadow-color); /* Reduced shadow size */
+    padding: 2rem; /* Added padding for content spacing */
 }
 
+/* Documents grid layout */
 .documents {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--box-width), 1fr));
-    gap: var(--gap-size);
-    color: black;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    gap: var(--gap-size); /* Increased gap size for more space between boxes */
+    padding: 2rem 0; /* Increased padding at top and bottom */
+    color: #333; /* Darker color for better text visibility */
 }
 
-/* Documents styles */
+/* Document cards */
 .documents .document {
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Added space between title and content */
     cursor: pointer;
     height: var(--box-height);
-    box-shadow: 3px 3px 15px rgba(66, 66, 66, 0.5);
+    box-shadow: 0 4px 8px var(--shadow-color); /* Softer and less bulky shadows */
     margin: 0.5rem;
     padding: var(--padding-size);
-    border-radius: 5%;
-    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px; /* Reduced border radius for a more modern feel */
+    background-color: white;
     font-size: clamp(0.5rem, 1.5vw, 1rem);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect for document cards */
 .documents .document:hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 20px rgba(66, 66, 66, 0.7);
+    transform: translateY(-5px); /* Subtle hover effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Lightened and spread hover shadow */
 }
 
+/* Title and content inside the document card */
 .document .title-wrapper {
-    border-bottom: 1px dashed #989898;
+    border-bottom: 1px dashed #ccc; /* Softer border color */
+    margin-bottom: 0.75rem; /* Increased margin for space between title and content */
 }
 
 .document .title {
     white-space: nowrap;
-}
-
-.document .title,
-.document .content {
+    font-weight: bold; /* Bold the title to make it more prominent */
+    color: var(--primary-color); /* Use a primary color for visual hierarchy */
+    font-size: 1.1rem; /* Slightly increase the font size for readability */
     overflow: hidden;
 }
 
 .document .content {
-    overflow: hidden;
     white-space: normal;
-    margin-top: 3px;
-    line-height: 1.2em;
+    margin-top: 0.5rem; /* Added spacing between title and content */
+    line-height: 1.4em; /* Increased line height for better readability */
+    color: #555; /* Softer content text color for less contrast */
+    overflow: hidden;
 }
-@media (max-width: 1200px)  {
+
+/* Media queries adjust sizes based on screen */
+@media (max-width: 1200px) {
     :root {
-        --box-width: 205px;
+        --box-width: 220px;
         --box-height: 180px;
     }
 }
 
-/* Media queries adjust sizes based on screen */
-@media (max-width: 950px)  {
+@media (max-width: 950px) {
     :root {
         --box-width: 200px;
         --box-height: 150px;
     }
 }
+
 @media (max-width: 750px) {
     :root {
         --box-width: 180px;
-        --box-height: 100px;
-        ---padding-size: 1rem;
+        --box-height: 130px;
+        --padding-size: 1rem;
     }
 }
 
 @media (max-width: 540px) {
     :root {
         --box-width: 150px;
-        --box-height: 90px;
+        --box-height: 100px;
     }
     .document .title {
-        font-size: 0.6rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 380px) {
     :root {
-        --box-width: 100px;
-        --box-height: 60px;
+        --box-width: 120px;
+        --box-height: 90px;
     }
     .document .title {
-        font-size: 0.4rem;
+        font-size: 0.75rem;
     }
     .document .content {
-        font-size: 0.3rem;
+        font-size: 0.6rem;
     }
-
 }
