@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { Dashboard } from "./components/Dashboard";
 import { DocEdit } from "./components/DocEdit.jsx";
+import LandingPage from './components/LandingPage';
+
+
 import './App.css'
 // import {useDispatch} from "react-redux";
 // import {useEffect} from "react";
@@ -33,6 +36,7 @@ function App() {
     <>
         <Router>
             <Routes>
+                <Route path={'/'} element={<LandingPage />} />
                 <Route path={'/dashboard'} element={<Dashboard />} />
                 <Route path={'/document/:id'} element={<DocEdit />} />
                 <Route path={'/error_page'} element={<ErrorPage />} />
