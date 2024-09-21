@@ -20,9 +20,16 @@ export const AuthProvider = ( { children } ) => {
     const location = useLocation();
 
     useEffect(() => {
+        const NODE_ENV = import.meta.env.VITE_NODE_ENV;
         // check if user is logged in or not
         if (location.pathname !== '/login') {
-            checkAuthStatus(setIsAuthenticated).then(() => setIsLoading(false));
+            if (NODE_ENV === 'production') {
+                checkAuthStatus(setIsAuthenticated).then(() => setIsLoading(false));
+            } else {
+                // For development purposes, we will assume the user is authenticated
+                setIsAuthenticated(true);
+                setIsLoading(false);
+            }
         } else {
             setIsLoading(false);
         }
