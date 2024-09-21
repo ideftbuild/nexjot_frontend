@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 import { Dashboard } from "./components/Dashboard";
 import { DocEdit } from "./components/DocEdit.jsx";
 import LandingPage from './components/LandingPage';
@@ -6,8 +6,9 @@ import LandingPage from './components/LandingPage';
 
 import './App.css'
 import { ErrorPage } from './components/ErrorPage.jsx'
-import OAuth2RedirectHandler from "./components/OAuth2RedirectHandler.jsx";
-import OAuth2Login from "./components/Login.jsx";
+import OAuth2Login from './components/Login.jsx';
+import {AuthProvider} from "./contexts/AuthContext.jsx";
+import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
 
 
 /**
@@ -24,14 +25,18 @@ function App() {
     return (
     <>
         <Router>
-            <Routes>
-                <Route path={'/'} element={<LandingPage />} />
-                <Route path={'/dashboard'} element={<Dashboard />} />
-                <Route path={'/document/:id'} element={<DocEdit />} />
-                <Route path={'/error_page'} element={<ErrorPage />} />
-                <Route path={'/login'} element={<OAuth2Login />} />
-                <Route path={'/oauth2/redirect'} element={<OAuth2RedirectHandler />} />
-            </Routes>
+            <AuthProvider>
+                <Routes>
+                    <Route path={'/'} element={<LandingPage />} />
+                    <Route path={'/login'} element={<OAuth2Login />} />
+                    <Route element={<ProtectedRoute />} >  {/* ensure only authenticated user access this route */}
+                        <Route path={'/dashboard'} element={<Dashboard />} />
+                        <Route path={'/document/:id'} element={<DocEdit />} />
+                        <Route path={'/error_page'} element={<ErrorPage />} />
+                    </Route>
+                    <Route path={'*'} element={<Navigate to={'/login'} replace/>}/>  {/* redirect to login page if route does not exist */}
+                </Routes>
+            </AuthProvider>
         </Router>
     </>
   );
