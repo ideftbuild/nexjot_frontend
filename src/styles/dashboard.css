@@ -11,6 +11,11 @@
     --shadow-color: rgba(0, 0, 0, 0.05); /* Softer shadows */
 }
 
+.dashboard-wrapper {
+    background-color: #001f7a; /* Darker background color */
+    height: 100vh;
+}
+
 main {
     width: 90%;
     margin: 2rem auto; /* Added some margin for breathing space */
@@ -23,7 +28,7 @@ main {
 /* Documents grid layout */
 .documents {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--box-width), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--box-width), 1fr));
     gap: var(--gap-size); /* Increased gap size for more space between boxes */
     padding: 2rem 0; /* Increased padding at top and bottom */
     color: #333; /* Darker color for better text visibility */

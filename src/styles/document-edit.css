@@ -1,3 +1,8 @@
+.doc-edit-wrapper {
+    background-color: #001f7a; /* Darker background color */
+    height: 100vh;
+}
+
 .edit-box {
     display: flex;
     flex-direction: column;
