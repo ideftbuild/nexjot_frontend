@@ -21,7 +21,6 @@ export const AuthProvider = ( { children } ) => {
     const [ isLoading, setIsLoading ] = useState(true);
     const location = useLocation();
     const dispatch = useDispatch();
-    let appInitializer = null;
 
     useEffect( () => {
         // check authentication status and load initial data
@@ -35,7 +34,7 @@ export const AuthProvider = ( { children } ) => {
         }
         // load user data if user is authenticated otherwise redirect to login page
         if (location.pathname !== '/login') {
-            setUp().then(r => setIsLoading(false));
+            setUp().then(() => setIsLoading(false));
         } else {
             setIsLoading(false);
         }
