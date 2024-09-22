@@ -1,9 +1,6 @@
-// import {useDispatch, useSelector} from 'react-redux';
-// import {useEffect} from 'react';
-// import { addDocuments } from '../redux/reducer.js';
 import '../styles/dashboard.css'
-import {useNavigate} from "react-router-dom";
-import {documentService} from "../services/document-service.js";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 /**
@@ -13,8 +10,7 @@ import {documentService} from "../services/document-service.js";
  */
 export const DocsPreview = () => {
 
-    // const documents = useSelector(state => state.documents.documents.payload)
-    const documents = documentService();
+    const documents = useSelector(state => state.documents.documents);
     const navigate = useNavigate();
 
     // navigate to the document where the user clicked

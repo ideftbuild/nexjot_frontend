@@ -3,10 +3,14 @@ import { GOOGLE_AUTH_URL } from "../config/constants.js";
 
 /**
  * Checks if the user is authenticated by making a GET request to the server
- * @param {Function} setIsAuthenticated - Function to update the authentication state
- * @returns {Promise<void>}
+ * @returns {Promise<boolean>}
  */
-export const checkAuthStatus = async (setIsAuthenticated) => {
+export const checkAuthStatus = async () => {
+
+    if (import.meta.env.VITE_NODE_ENV === 'development') {
+        console.log("NODE_ENV is set to development, skipping auth check");
+        return true;
+    }
     try {
         // api call checks if user is authenticated by the backend
         console.log("checking the auth status");
@@ -15,14 +19,16 @@ export const checkAuthStatus = async (setIsAuthenticated) => {
         );
         if (response.ok) {
             console.log(await response.text())
-            setIsAuthenticated(true);  // user is logged in
+            return  response.status === 200;  // user is logged in
         } else {
             console.log(await response.text())
-            setIsAuthenticated(false);  // user is not logged in
+            // setIsAuthenticated(false);  // user is not logged in
+            return false;
         }
     } catch (err) {
         console.log('Error checking auth status:', err);
-        setIsAuthenticated(false);
+        // setIsAuthenticated(false);
+        return false;
     }
 }
 

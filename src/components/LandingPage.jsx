@@ -17,7 +17,7 @@ const LandingPage = () => {
   // The main return block of the LandingPage component
   return (
     // A flex container to ensure all elements are displayed in a column, and the page takes up the full height of the viewport
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#001f7a' }}>
       
       {/* Renders the Header component at the top of the page */}
       <Header />
