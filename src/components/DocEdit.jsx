@@ -38,14 +38,14 @@ export const DocEdit = () => {
         return <p>Document Not Found</p>;
     }
     return (
-        <>
+        <div className={'doc-edit-wrapper'}>
             <DocEditHeader title={title} setTitle={setTitle} />
             <main className={'edit-box'}>
                 <textarea className={`text-box ${isTyping ? 'text-box-active' : ''}`} value={content}
                           onChange={handleChangeOnContent(setContent, setIsTyping)}>
                 </textarea>
             </main>
-        </>
+        </div>
     );
 }
 

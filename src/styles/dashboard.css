@@ -13,7 +13,7 @@
 
 .dashboard-wrapper {
     background-color: #001f7a; /* Darker background color */
-    height: 100vh;
+    min-height: 100vh;
 }
 
 main {
