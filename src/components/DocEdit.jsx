@@ -1,37 +1,38 @@
 import {useParams} from "react-router-dom";
-// import {useSelector} from "react-redux";
-// import {selectDocumentById} from "../redux/selectors.js";
 import '../styles/document-edit.css'
 import React, {useEffect, useState} from "react";
-// import {DashboardHeader} from "./DashboardHeader.jsx";
-import { handleChangeOnContent } from "../listeners/document-listeners.js";
+import {handleChangeOnContent} from '../listeners/document-listeners.js';
 import {DocEditHeader} from "./DocEditHeader.jsx";
-import {documentService} from "../services/document-service.js";
+import {useSelector} from 'react-redux';
+import {selectDocumentById} from '../redux/selectors.js';
 
 
-const CHANGE = false;
 /**
  *  The editing page for a document
  *
  * Note: For now, we will use static document, any code commented out will be used with the api,
  * since we don't have that for now, please  leave it commented for testing purposes.
  */
-export const DocEdit = () => {
+const DocEdit = () => {
     const id = useParams().id;  // get document id from the URL
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [isTyping, setIsTyping] = useState(false);
-    // const document = useSelector(state => selectDocumentById(state, id));   this will be used with the api
-    const documents = documentService();  // static documents
-    const document = documents.find(document => document.id === id);  // static document
+    const [isLoading, setIsLoading] = useState(true);
+    const document = useSelector(state => selectDocumentById(state, id));
+
     // set initial title and content
     useEffect(() => {
         if (document) {
-            console.log("Use effect always called");
             setContent(document.content);
             setTitle(document.title);
         }
-    }, [CHANGE]);
+        setIsLoading(false);
+    }, [document]);
+
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
     // if document not found
     if (!document) {
         console.log(`Document with id ${id} not found`);
@@ -49,4 +50,5 @@ export const DocEdit = () => {
     );
 }
 
-export default React.memo(DocEdit);
+// export default React.memo(DocEdit);  // use when `DocEdit` receives `props`
+export default DocEdit;

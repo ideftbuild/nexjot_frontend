@@ -1,10 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-const getDocuments = state => state.documents.documents.payload;
+const getDocuments = state => state.documents.documents;
 const getDocumentId = (state, id) => id;
 
 /**
- * Select a given document from the slice using the id
+ * Selects a document from the state slice by its ID and caches the result.
+ * The computation is only performed if the input arguments change, improving performance.
  *
  * @param
  *  @inputSelectors
