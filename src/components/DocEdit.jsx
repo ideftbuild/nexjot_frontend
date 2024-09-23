@@ -18,9 +18,9 @@ const DocEdit = () => {
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [isTyping, setIsTyping] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
-    const document = useSelector(state => selectDocumentById(state, id));
-
+    // const document = useSelector(state => selectDocumentById(state, id));   this will be used with the api
+    const documents = documentService();  // static documents
+    const document = documents.find(document => document.id === String(id));  // static document
     // set initial title and content
     useEffect(() => {
         if (document) {
@@ -50,5 +50,4 @@ const DocEdit = () => {
     );
 }
 
-// export default React.memo(DocEdit);  // use when `DocEdit` receives `props`
-export default DocEdit;
+export default React.memo(DocEdit);
