@@ -1,17 +1,12 @@
 import {useParams} from "react-router-dom";
-// import {useSelector} from "react-redux";
-// import {selectDocumentById} from "../redux/selectors.js";
 import '../styles/document-edit.css'
 import React, {useEffect, useState} from "react";
-// import {DashboardHeader} from "./DashboardHeader.jsx";
 import {handleChangeOnContent} from '../listeners/document-listeners.js';
 import {DocEditHeader} from "./DocEditHeader.jsx";
-import {documentService} from "../services/document-service.js";
 import {useSelector} from 'react-redux';
 import {selectDocumentById} from '../redux/selectors.js';
 
 
-const CHANGE = false;
 /**
  *  The editing page for a document
  *
