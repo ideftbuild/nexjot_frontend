@@ -15,7 +15,7 @@ export const DocsPreview = () => {
 
     // navigate to the document where the user clicked
     function openDocumentForEdit (document) {
-        navigate(`/document/${document.id}`);
+        navigate(`/documents/${document.id}`);
     }
     // user has no document
     if (!documents || !Array.isArray(documents)) {

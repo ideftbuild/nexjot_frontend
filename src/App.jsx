@@ -1,15 +1,12 @@
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
-import { Dashboard } from "./components/Dashboard";
-import { DocEdit } from "./components/DocEdit.jsx";
-import LandingPage from './components/LandingPage';
-
-
-import './App.css'
-import { ErrorPage } from './components/ErrorPage.jsx'
-import OAuth2Login from './components/Login.jsx';
+import {Dashboard} from "./components/Dashboard";
+import {ErrorPage} from './components/ErrorPage.jsx'
 import {AuthProvider} from "./contexts/AuthContext.jsx";
 import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
-
+import OAuth2Login from './components/Login.jsx';
+import LandingPage from './components/LandingPage';
+import  DocEdit from "./components/DocEdit.jsx";
+import './App.css'
 
 /**
  * Entry point of the application
@@ -31,7 +28,7 @@ function App() {
                     <Route path={'/login'} element={<OAuth2Login />} />
                     <Route element={<ProtectedRoute />} >  {/* ensure only authenticated user access this route */}
                         <Route path={'/dashboard'} element={<Dashboard />} />
-                        <Route path={'/document/:id'} element={<DocEdit />} />
+                        <Route path={'/documents/:id'} element={<DocEdit />} />
                         <Route path={'/error_page'} element={<ErrorPage />} />
                     </Route>
                     <Route path={'*'} element={<Navigate to={'/login'} replace/>}/>  {/* redirect to login page if route does not exist */}
