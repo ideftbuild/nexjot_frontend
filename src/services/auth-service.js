@@ -1,4 +1,4 @@
-import { GOOGLE_AUTH_URL } from "../config/constants.js";
+import {APP_URL, GOOGLE_AUTH_URL} from "../config/constants.js";
 
 
 /**
@@ -36,8 +36,9 @@ export const checkAuthStatus = async () => {
 /**
  * Redirects the user to the Google OAuth2 login page
  */
-export const login = () => {
-    window.location.href = GOOGLE_AUTH_URL;
+export const login = (from) => {
+    const encodedRedirectUri = encodeURIComponent(`${APP_URL}${from}`);
+    window.location.href= `${GOOGLE_AUTH_URL}?redirect-uri=${encodedRedirectUri}`;
 }
 
 

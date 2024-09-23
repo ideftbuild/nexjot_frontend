@@ -1,11 +1,13 @@
 import React from "react";
-import { GOOGLE_AUTH_URL } from "../config/constants.js";
 import '../styles/login.css'
+import {useLocation} from "react-router-dom";
+import {useAuth} from "../contexts/AuthContext.jsx";
 
 const OAuth2Login = () => {
-    function handleLogin() {
-        window.location.href= GOOGLE_AUTH_URL;
-    }
+    // get the url requested before redirection to login page otherwise use `/dashboard` if not available
+    const from = useLocation().state?.from?.pathname || '/dashboard';
+    const { login } = useAuth();
+
     return (
         <div className={'login-wrapper'}>
             <div className={'login-card'}>
@@ -14,7 +16,7 @@ const OAuth2Login = () => {
                     <p>Access your account or join us today</p>
                 </div>
 
-                <button className={'sign-in-btn'} onClick={handleLogin}>Continue with google</button>
+                <button className={'sign-in-btn'} onClick={() => login(from)}>Continue with google</button>
             </div>
         </div>
     );
