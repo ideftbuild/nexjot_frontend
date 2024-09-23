@@ -1,12 +1,42 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html class="no-js" lang="en-US"> 
+<head>
+    <!-- Meta information for character encoding, compatibility, and responsive design -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>NexJot</title>
-  </head>
-  <body>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts for typography styling -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    
+    <!-- Core styles for the theme, responsible for overall layout and design -->
+    <link rel="stylesheet" href="src/styles/core.css">
+
+    <!-- Animation library for applying animations to elements (e.g., wow.js animations) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+</head>
+
+<body>
+    <!-- Root element where the React app will be rendered -->
     <div id="root"></div>
+
+    <!-- Main entry point for the React app -->
     <script type="module" src="./src/main.jsx"></script>
-  </body>
+
+    <!-- jQuery library, needed for some custom scripts or legacy support -->
+    <script src="./src/vendors/jquery-3.2.1.min.js"></script>
+
+    <!-- WOW.js library, used for scrolling animations -->
+    <script src="./src/vendors/core-v=1.0.js"></script>
+
+    <!-- Custom JavaScript file for additional functionalities -->
+    <script src="./src/vendors/custom.js"></script>
+
+    <!-- Core JavaScript file for handling various app logic (versioned) -->
+    <script src="./src/vendors/wow.min.js"></script>
+</body>
 </html>

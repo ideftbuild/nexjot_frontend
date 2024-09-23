@@ -1,24 +1,16 @@
-/* styles/header.css */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes the <h1> to the left and the button to the right */
+  padding: 1rem 2rem; /* Adjust padding if necessary */
+  background: #001f7a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+  width: 100%; /* Ensure header takes full width of the container */
 
-/* Flexbox container for the header */
-.header-container {
-    display: flex;
-    align-items: center;
-    top: 0;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-image: linear-gradient(to right, #7a288a, #4a90e2);
-    border-radius: 10px;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.header-title, header h1 {
-    font-size: clamp(1rem, 2vw, 2rem);
-    font-weight: bold;
-    margin: 0;
-    color: white;
-    order: 2;
 }
 
 .dropdown-container {
@@ -26,38 +18,158 @@
     display: inline-block;
     order: 1;
 header button {
-    background: none;
-    border: 2px solid #ffffff;
-    border-radius: 10px;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 1rem;
-    transition: transform 0.2s, color 0.2s, background 0.2s;
+  background: none;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 1rem;
+  transition: transform 0.2s, color 0.2s, background 0.2s;
+  margin-left: 1rem; /* Adds space between the button and title */
 }
+
+header h1 {
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+/* Header.css */
+
+.header {
+    background-color: #333; /* Adjust as needed */
+    color: #fff;
+  }
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .nav-label .logo_trim {
+    height: 50px; /* Adjust logo size as needed */
+  }
+
+  .nav-toggle {
+    display: none; /* Hide the toggle button if not needed */
+  }
+
+  .nav-menus-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown.header-right {
+    position: relative;
+  }
+
+  .lang {
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .dropdown-content p {
+    margin: 0;
+  }
+
+  .dropdown-content a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-menu .nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-menu .nav-link:hover {
+    background-color: #555; /* Adjust hover color as needed */
+  }
+
+  #border-lined {
+    border: 1px solid #fff; /* Adjust border color as needed */
+  }
+
 
 header button:hover,
 header button:focus {
     transform: scale(1.1);
-    color: #4a90e2;
+    color: #001f7a;
     background: #ffffff;
 }
 
-@media (max-width: 600px) {
-    header {
-        padding: 0.5em 1em;
-        top: 0;
-        margin: 0;
+/* Media queries adjust sizes based on screen */
+@media (max-width: 1200px) {
+    :root {
+        --box-width: 220px;
+        --box-height: 180px;
+    }
+}
+
+@media (max-width: 950px) {
+    :root {
+        --box-width: 200px;
+        --box-height: 150px;
+    }
+}
+
+@media (max-width: 750px) {
+    :root {
+        --box-width: 180px;
+        --box-height: 130px;
+        --padding-size: 1rem;
+    }
+}
+
+@media (max-width: 540px) {
+    :root {
+        --box-width: 150px;
+        --box-height: 100px;
+    }
+    .document .title {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 380px) {
+    :root {
+        --box-width: 120px;
+        --box-height: 90px;
     }
     header button {
         padding: 0.5rem;
     }
 }
 /* add spin effect to the h1 tag in the header when hovered */
-@media (prefers-reduced-motion: no-preference) {
-    header h1:hover {
-        animation: h1-spin infinite 20s linear;
-    }
-}
+/* @media (prefers-reduced-motion: no-preference) { */
+    /* header h1:hover { */
+        /* animation: h1-spin infinite 20s linear; */
+
+/* } */
 @keyframes h1-spin {
   from {
     transform: rotate(0deg);
