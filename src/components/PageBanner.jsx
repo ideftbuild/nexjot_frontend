@@ -1,5 +1,5 @@
 import React from 'react'; // Import React for functional components
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Functional component for the banner section
 const Banner = () => {
@@ -25,7 +25,7 @@ const Banner = () => {
               {/* Main content of the banner */}
               <div className='banner-content'>
                 {/* Banner title with large font size and white color */}
-                <h1 className='banner-title' style={{ fontSize: '50px', color:'#FFFFFF', marginBottom: '50px' }}>
+                <h1 className='banner-title' style={{ fontSize: '50px', color: '#FFFFFF', marginBottom: '50px' }}>
                   Welcome to NextJot!
                 </h1>
                 {/* Banner subtitle with margin and white color */}
@@ -39,7 +39,7 @@ const Banner = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Additional intro content with banner images and description */}
           <div className='row intro'>
             {/* Left column for images */}
@@ -59,7 +59,7 @@ const Banner = () => {
             {/* Right column for description */}
             <div className='col-md-5 wow fadeInUp' data-wow-duration='3s'>
               {/* Subtitle text with white color */}
-              <h2 className='column-title' style={{ color:'#FFFFFF' }}>
+              <h2 className='column-title' style={{ color: '#FFFFFF' }}>
                 Streamline Your Document Editing with NextJot
               </h2>
               {/* Additional introductory content about NextJot corrections and additions would be made to this */}

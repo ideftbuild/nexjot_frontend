@@ -57,7 +57,7 @@ const Features = () => {
         <div className="row">
           <div className="col-lg-8 mx-auto">
             {/* Title and subtitle for the features section */}
-            <div className="section-title-item" style={{ marginTop: '150px', color:'#FFFFFF'}}>
+            <div className="section-title-item" style={{ marginTop: '150px', color: '#FFFFFF' }}>
               <small className="gl-section-title">What You Get With NextJot</small>
               <h2 className="section-title">Our Amazing Features</h2>
             </div>
@@ -77,9 +77,9 @@ const Features = () => {
                 {/* Single feature item */}
                 <div className="icon-featured-item">
                   {/* Image for the feature */}
-                  <img src={feature.imgSrc} alt={feature.title} width="70%" style={{ marginTop: '50px'}}/>
+                  <img src={feature.imgSrc} alt={feature.title} width="70%" style={{ marginTop: '50px' }} />
                   {/* Title of the feature */}
-                  <h3 className="feature-title" style={{color:'#FFFFFF'}}>{feature.title}</h3>
+                  <h3 className="feature-title" style={{ color: '#FFFFFF' }}>{feature.title}</h3>
                   {/* Description of the feature */}
                   <p>{feature.description} </p>
                 </div>
