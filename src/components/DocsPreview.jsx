@@ -1,8 +1,6 @@
 import '../styles/dashboard.css'
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { documentService } from '../services/document-service.js';
-
 
 /**
  * Preview all users documents
@@ -18,8 +16,7 @@ import { documentService } from '../services/document-service.js';
  * @returns {JSX.Element} A section containing filtered documents or a message if no documents are found.
  */
 export const DocsPreview = ({ searchTerm }) => {
-    const documents = documentService();
-    // const documents = useSelector(state => state.documents.documents);
+    const documents = useSelector(state => state.documents.documents);
     const navigate = useNavigate();
 
     // navigate to the document where the user clicked
