@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/DropdownMenu.css';
 import { FaBars } from 'react-icons/fa';
@@ -15,41 +15,63 @@ import { FaBars } from 'react-icons/fa';
 export const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null); // Reference to the dropdown element
 
   /**
    * Toggles the dropdown menu visibility.
    */
-  const toggleDropdown = () => {
+  const toggleDropdown = (e) => {
+    e.stopPropagation(); // Prevent the event from bubbling
+    console.log("Dropdown toggled");
     setIsOpen(!isOpen);
   };
 
   /**
-   * Handles the navigation to the new document page.
-   * Redirects the user to the specifie path.
+   * Handles the click event outside the dropdown menu.
    */
-  const handleCreateNewDocument = () => {
-    navigate('/new'); // Navigate to new document page
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    console.log("Clicked outside the dropdown");
+      setIsOpen(false);
+    }
   };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []); // eslint-disable-line
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    setIsOpen(false);
+  };
+
+  // /**
+  //  * Handles the navigation to the new document page.
+  //  * Redirects the user to the specifie path.
+  //  */
+  // const handleCreateNewDocument = () => {
+  //   navigate('/new'); // Navigate to new document page
+  // };
 
 
   return (
-    <div className="dropdown-container">
-      <div className="dropdown-button"
+    <div className="dropdown-container" ref={dropdownRef}>
+      <button
+        className="dropdown-button"
         onClick={toggleDropdown}
-        role="button"
-        aria-label={isOpen ? "Close menu" : "Open menu"} /* Aria label for accessibility */
-        aria-expanded={isOpen}>
-        {/* The FaBars icon is used as the dropdown button. */}
-         <FaBars size={34} />
-      </div>
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        >
+         <FaBars size={30} />
+      </button>
       {isOpen && (
-        <div className="dropdown-content">
-          role="menu"
-          aria-label="Dropdown options"
-          <button onClick={handleCreateNewDocument} role="menuitem">New Document</button>
-          <button onClick={() => navigate('/user-dashboard')} role="menuitem">Dashboard</button>
-          <button onClick={() => navigate('/user-profile')} role="menuitem">Profile</button>
-          <button onClick={() => navigate('/login')} role="menuitem">Logout</button>
+        <div className="dropdown-content" role="menu">
+          <button onClick={() => handleNavigation('/new')} role="menuitem">New Document</button>
+          <button onClick={() => handleNavigation('/dashboard')} role="menuitem">Dashboard</button>
+          <button onClick={() => handleNavigation('/login')} role="menuitem">Logout</button>
         </div>
       )}
     </div>
@@ -57,3 +79,4 @@ export const DropdownMenu = () => {
 };
 
 export default DropdownMenu;
+
