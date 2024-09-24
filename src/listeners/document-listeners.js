@@ -2,7 +2,6 @@
  * handle frequent changes to the content in the edit page
  */
 export const handleChangeOnContent = (setContent, setIsTyping) => (e) => {
-    console.log("Content changed");
     setContent(e.target.value);
     setIsTyping(true);
     clearTimeout(window.typingTimeout);
@@ -13,6 +12,5 @@ export const handleChangeOnContent = (setContent, setIsTyping) => (e) => {
  * handle frequent changes to title in the edit page
  */
 export const handleChangeOnTitle = (setTitle) => (e) => {
-    console.log("Title changed");
     setTitle(e.target.value);
 };

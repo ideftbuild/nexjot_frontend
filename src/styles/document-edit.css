@@ -45,19 +45,8 @@
     text-align: center;
 }
 
-.save-button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #3bff3b;  /* Light green */
-    color: #000;
-    border: 1px solid #151414;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.save-button:hover {
-    background-color: #33cc33;  /* Darker green on hover */
+.edit-box p {
+    color: #33cc33;  /* Darker green on hover */
 }
 
 @media (max-width: 650px) {

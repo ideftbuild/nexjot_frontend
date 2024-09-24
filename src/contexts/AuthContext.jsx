@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { checkAuthStatus, login, logout } from "../services/auth-service.js";
 import { useLocation } from "react-router-dom";
-import { initializeApp } from "../services/app-initializer.js";
-import { useDispatch } from "react-redux";
 
 
 const AuthContext = createContext(null);
@@ -20,16 +18,12 @@ export const AuthProvider = ( { children } ) => {
     const [ isAuthenticated, setIsAuthenticated ] = useState(false);
     const [ isLoading, setIsLoading ] = useState(true);
     const location = useLocation();
-    const dispatch = useDispatch();
 
     useEffect( () => {
         // check authentication status and load initial data
         const setUp = async () => {
-            const NODE_ENV = import.meta.env.VITE_NODE_ENV;
             if (await checkAuthStatus()) {
                 setIsAuthenticated(true);
-                // By default, it uses the static data. To switch to dynamic set `VITE_NODE_ENV` to `production`
-                await initializeApp(dispatch, NODE_ENV === 'development');
             }
         }
         // load user data if user is authenticated otherwise redirect to login page

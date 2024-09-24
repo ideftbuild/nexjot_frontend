@@ -8,12 +8,10 @@ import {APP_URL, GOOGLE_AUTH_URL} from "../config/constants.js";
 export const checkAuthStatus = async () => {
 
     if (import.meta.env.VITE_NODE_ENV === 'development') {
-        console.log("NODE_ENV is set to development, skipping auth check");
         return true;
     }
     try {
         // api call checks if user is authenticated by the backend
-        console.log("checking the auth status");
         const response = await fetch('http://localhost:8080/auth/status',
             { credentials: 'include'}
         );

@@ -5,7 +5,8 @@ import {handleChangeOnContent} from '../listeners/document-listeners.js';
 import {DocEditHeader} from "./DocEditHeader.jsx";
 import {useSelector} from 'react-redux';
 import {selectDocumentById} from '../redux/selectors.js';
-import {getDocument} from "../services/document-service.js";
+import {getDocument, saveDocument} from "../services/document-service.js";
+
 
 /**
  * The editing page for a document
@@ -14,10 +15,8 @@ import {getDocument} from "../services/document-service.js";
  * and user feedback during the process.
  *
  * Note:
- * - For now, we will use static documents. Any code related to the API or Redux
- *   is commented out for testing purposes.
- * - Redux implementation is integrated, but can be activated
- *   later when the API is ready.
+ * FEAT: Use color red for error message and green for success
+ * FIX: Display an error message when user enters a title less than 10
  */
 const DocEdit = () => {
     const id = useParams().id;  // Get document ID from the URL
@@ -46,8 +45,6 @@ const DocEdit = () => {
         }
     }, [id, NODE_ENV, doc]);
 
-    // This following line to use Redux-based document fetching in the future
-    // const document = useSelector(state => selectDocumentById(state, id));
 
     // set initial title and content
     useEffect(() => {
@@ -67,48 +64,37 @@ const DocEdit = () => {
         return <p>Document Not Found</p>;
     }
 
-    // Save handler to log the updated document (to be connected to backend later)
-    const handleSave = async () => {
-        const updatedDocument = { id, title, content };
+    const saveContent = async () => {
         setIsSaving(true);
-        setSaveMessage(''); // Clear previous message
-
-        try {
-            // Simulate API save call (can replace with actual API)
-            await fakeApiCall(updatedDocument);
-            console.log('Document saved successfully:', updatedDocument);
-            setSaveMessage('Document saved successfully!'); // Success message
-        } catch (error) {
-            console.error('Failed to save document:', error);
-            setSaveMessage('Failed to save document.'); // Error message
-        } finally {
-            setIsSaving(false); // Reset saving state
+        const saveDoc = await saveDocument(id, {'content': content});
+        if (NODE_ENV === 'development') {
+            saveDoc.title = title;
         }
-    };
-
-    // Simulate an API call for saving
-    const fakeApiCall = (data) => {
-        console.log('data => ', data);
-        return new Promise((resolve) => {
-            setTimeout(() => resolve('success'), 1000); // Simulates a 1s delay
-        });
-    };
+        if (saveDoc) {
+            setSaveMessage('Document successfully saved!');
+            setDocument(saveDoc);
+        } else {
+            setSaveMessage('Failed to save document.');
+        }
+        window.setTimeout(() => setIsSaving(false), 1000);
+    }
 
     return (
         <div className={'doc-edit-wrapper'}>
-            <DocEditHeader title={title} setTitle={setTitle} />
+            <DocEditHeader
+                id={id}
+                title={title}
+                setTitle={setTitle}
+                setSaveMessage={setSaveMessage}
+                setDocument={setDocument}
+                setIsSaving={setIsSaving}/>
             <main className={'edit-box'}>
-                <textarea
+                <textarea onBlur={saveContent}
                     className={`text-box ${isTyping ? 'text-box-active' : ''}`}
                     value={content}
                     onChange={handleChangeOnContent(setContent, setIsTyping)}
                 />
-                {/* Save Button */}
-                <button onClick={handleSave} className="save-button" disabled={isSaving}>
-                    {isSaving ? 'Saving...' : 'Save'}
-                </button>
-                {/* Display save message (success or error) */}
-                {saveMessage && <p>{saveMessage}</p>}
+                {isSaving && saveMessage && <p>{saveMessage}</p>}
             </main>
         </div>
     );
