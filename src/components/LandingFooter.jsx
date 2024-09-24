@@ -95,7 +95,7 @@ const Footer = () => {
               {/* Project repository link */}
               <h3 className="feature-title mt-5">
                 Project GitHub repository :
-                <li> <a target="_blank" rel="noopener noreferrer" href="https://github.com/your-repository-link"> GitHub Repository</a>
+                <li> <a target="_blank" rel="noopener noreferrer" href="https://github.com/ideftbuild/nexjot_frontend"> GitHub Repository</a>
                 </li>
               </h3>
             </div>
