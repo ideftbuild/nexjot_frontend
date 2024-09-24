@@ -1,4 +1,17 @@
 
+export const getDocument = async (id) => {
+    try {
+        const response = await fetch('http://localhost:8080/api/documents/' + id,
+            {'credentials': 'include'});
+        if (response.ok) {
+            return await response.json();
+        } else {
+            return null;
+        }
+    } catch {
+        console.log(`Error retrieving document: ${err}`);
+    }
+}
 
 export const getDocumentsPreview = async (useStaticData=false) => {
     if (useStaticData) {

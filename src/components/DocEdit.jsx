@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
-import '../styles/document-edit.css';
-import React, { useEffect, useState } from "react";
-import { handleChangeOnContent } from '../listeners/document-listeners.js';
-import { DocEditHeader } from "./DocEditHeader.jsx";
-import { documentService } from "../services/document-service.js"; // Mock data for now
-import { useSelector } from 'react-redux'; // for redux implementation
-import { selectDocumentById } from '../redux/selectors.js';
+import {useParams} from "react-router-dom";
+import '../styles/document-edit.css'
+import React, {useEffect, useState} from "react";
+import {handleChangeOnContent} from '../listeners/document-listeners.js';
+import {DocEditHeader} from "./DocEditHeader.jsx";
+import {useSelector} from 'react-redux';
+import {selectDocumentById} from '../redux/selectors.js';
+import {getDocument} from "../services/document-service.js";
 
 /**
  * The editing page for a document
@@ -24,22 +24,48 @@ const DocEdit = () => {
     const [content, setContent] = useState(''); // Document content state
     const [title, setTitle] = useState('');     // Document title state
     const [isTyping, setIsTyping] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [isSaving, setIsSaving] = useState(false); // State to track saving status
     const [saveMessage, setSaveMessage] = useState(''); // Feedback message for user
+    const [document, setDocument] = useState(null);
+    const NODE_ENV = import.meta.env.VITE_NODE_ENV;
+    const doc = useSelector(state => NODE_ENV === 'development' ? selectDocumentById(state, id) : null);
+
+    // load the document
+    useEffect(() => {
+        if (NODE_ENV === 'development') {
+            setDocument(doc);
+            setIsLoading(false);
+        } else {
+            // load document
+            const loadDocument = async () => {
+                setDocument(await getDocument(id));
+                setIsLoading(false);
+            }
+            loadDocument().then();
+        }
+    }, [id, NODE_ENV, doc]);
 
     // This following line to use Redux-based document fetching in the future
     // const document = useSelector(state => selectDocumentById(state, id));
 
-    const documents = documentService();  // Static documents
-    const document = documents.find(document => document.id === String(id)); // Find the document by ID
-
-    // Set initial title and content
+    // set initial title and content
     useEffect(() => {
         if (document) {
             setContent(document.content);
             setTitle(document.title);
         }
     }, [document]);
+
+
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
+    // if document not found
+    if (!document) {
+        console.log(`Document with id ${id} not found`);
+        return <p>Document Not Found</p>;
+    }
 
     // Save handler to log the updated document (to be connected to backend later)
     const handleSave = async () => {
@@ -62,14 +88,11 @@ const DocEdit = () => {
 
     // Simulate an API call for saving
     const fakeApiCall = (data) => {
+        console.log('data => ', data);
         return new Promise((resolve) => {
             setTimeout(() => resolve('success'), 1000); // Simulates a 1s delay
         });
     };
-
-    if (!document) {
-        return <p>Document Not Found</p>; // If document not found, return message
-    }
 
     return (
         <div className={'doc-edit-wrapper'}>
