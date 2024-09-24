@@ -20,7 +20,10 @@ export const DocsPreview = ({searchTerm}) => {
     }
     
     // Filters the documents based on search term (which is either search by title or content)
-    const filteredDocuments = documents.filter((doc) => 
+    let filteredDocuments = documents;
+//IF searchTerm is not an empty string or searchTerm is not equal to null
+//THEN filteredDocuments is assigned the value of documents filtered by the search term
+    filteredDocuments = documents.filter((doc) => 
         doc.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
         doc.content.toLowerCase().includes(searchTerm.toLowerCase())
     );
