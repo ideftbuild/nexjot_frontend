@@ -1,3 +1,36 @@
+// Simulate an API call for saving
+const fakeApiCall = (value) => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(value), 1000); // Simulates a 1s delay
+    });
+};
+
+// Save handler to log the updated document (to be connected to backend later)
+export const saveDocument = async (id, data) => {
+    const NODE_ENV = import.meta.env.VITE_NODE_ENV;
+    const { title, content } = data;
+
+    if (NODE_ENV === 'development') {
+        return await fakeApiCall(data);
+    }
+    try {
+        const body = {...(title && title.length > 9 && { title }),
+            ...(content !== undefined &&{ content: content === '' ? '__EMPTY__' : content }) };
+        const response = await fetch(`http://localhost:8080/api/documents/${id}`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+        if (response.ok) {
+            return await response.json();
+        }
+    } catch (err) {
+        console.log(`Error saving document: ${err}`);
+    }
+};
 
 export const getDocument = async (id) => {
     try {
@@ -5,8 +38,6 @@ export const getDocument = async (id) => {
             {'credentials': 'include'});
         if (response.ok) {
             return await response.json();
-        } else {
-            return null;
         }
     } catch {
         console.log(`Error retrieving document: ${err}`);
@@ -15,6 +46,7 @@ export const getDocument = async (id) => {
 
 export const getDocumentsPreview = async (useStaticData=false) => {
     if (useStaticData) {
+        console.log("getting static data");
         return documentService();
     }
     try {

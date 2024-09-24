@@ -1,7 +1,6 @@
 import { useAuth } from '../../contexts/AuthContext.jsx'
 import {Navigate, Outlet, useLocation} from "react-router-dom";
 
-
 /**
  * Ensure only authenticated user access the protected routes otherwise
  * redirect to login page
@@ -21,6 +20,7 @@ const ProtectedRoute = () => {
     if (!isAuthenticated) {
         return <Navigate to={'/login'} state={{ from: location }} replace/>
     }
+
     // user is authenticated, render children
     return <Outlet />  // render children
 }
