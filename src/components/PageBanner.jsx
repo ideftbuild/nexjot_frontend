@@ -1,5 +1,5 @@
 import React from 'react'; // Import React for functional components
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Functional component for the banner section
 const Banner = () => {
@@ -25,12 +25,12 @@ const Banner = () => {
               {/* Main content of the banner */}
               <div className='banner-content'>
                 {/* Banner title with large font size and white color */}
-                <h1 className='banner-title' style={{ fontSize: '50px', color:'#FFFFFF', marginBottom: '50px' }}>
+                <h1 className='banner-title' style={{ fontSize: '50px', color: '#FFFFFF', marginBottom: '50px' }}>
                   Welcome to NextJot!
                 </h1>
                 {/* Banner subtitle with margin and white color */}
                 <h2 style={{ margin: '20px 10px 30px 5px', color: '#FFFFFF' }}>
-                  Your Ultimate Collaborative Workspace for Effortless Document Editing
+                  Your Ultimate Workspace for Effortless Document Editing
                 </h2>
                 {/* Call-to-action button for signup */}
                 <button className='btn btn-primary' style={{ fontSize: '20px', padding: '10px 20px' }} onClick={handleLoginRedirect}>
@@ -39,7 +39,7 @@ const Banner = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Additional intro content with banner images and description */}
           <div className='row intro'>
             {/* Left column for images */}
@@ -59,15 +59,14 @@ const Banner = () => {
             {/* Right column for description */}
             <div className='col-md-5 wow fadeInUp' data-wow-duration='3s'>
               {/* Subtitle text with white color */}
-              <h2 className='column-title' style={{ color:'#FFFFFF' }}>
+              <h2 className='column-title' style={{ color: '#FFFFFF' }}>
                 Streamline Your Document Editing with NextJot
               </h2>
               {/* Additional introductory content about NextJot corrections and additions would be made to this */}
               <div className='intro-top-content'>
                 <p>
-                  NextJot is a powerful collaborative document editing platform that simplifies your workflow.
-                  Say goodbye to scattered notes and outdated file versions. With NextJot, you can create, edit, and collaborate
-                  in real-time, all from an intuitive, sleek interface. Whether you're working solo or in a team, your documents are always
+                  NextJot is a powerful document editing platform that simplifies your workflow.
+                  Say goodbye to scattered notes and outdated file versions. With NextJot, you can create, edit all from an intuitive, sleek interface. Whether you're working solo or in a team, your documents are always
                   organized and accessible.
                 </p>
               </div>
