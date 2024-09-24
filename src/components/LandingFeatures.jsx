@@ -5,8 +5,8 @@ const featuresData = [
   {
     id: 1, // The unique identifier for each feature
     imgSrc: 'src/images/features/pages.png', // Path to the image for this feature
-    title: 'Real-Time Document Editing', // Feature title
-    description: 'The platform allows users to create and edit documents in real-time.', // Short description of the feature
+    title: 'Document Editing', // Feature title
+    description: 'The platform allows users to create and edit documents', // Short description of the feature
     duration: '1.5s' // Duration for animation effect
   },
   {
@@ -59,7 +59,7 @@ const Features = () => {
             {/* Title and subtitle for the features section */}
             <div className="section-title-item" style={{ marginTop: '150px', color:'#FFFFFF'}}>
               <small className="gl-section-title">What You Get With NextJot</small>
-              <h2 className="section-title">Amazing Features</h2>
+              <h2 className="section-title">Our Amazing Features</h2>
             </div>
           </div>
         </div>

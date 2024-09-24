@@ -43,7 +43,7 @@ const Footer = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-8 mx-auto">
-                <div className="section-title-item" style={{ marginTop: '80px', color:'#FFFFFF' }}>
+                <div className="section-title-item" style={{ marginTop: '80px', color:'#001f7a'}}>
                   <h2 className="section-title">About NexJot</h2>
                 </div>
               </div>
