@@ -35,15 +35,18 @@ export const DocEditHeader = ({ id, title, setTitle, setSaveMessage, setDocument
     }
 
     return (
-        <header>
+        <header >
             <input minLength={9} maxLength={50} id={'title'} value={title}
                    onChange={handleChangeOnTitle(setTitle)}
-                    onBlur={saveTitle}>
+                   onBlur={saveTitle}>
             </input>
-            <Link to='/dashboard' style={{ textDecoration: 'none', color: 'inherit' }}>
-              {/* Link to the dashboard so when the logo is clicked it takes the user to the dashboard */}
-                <h1>NexJot</h1>
-            </Link>
-      </header>
+            <div className={'doc-edit-header'}>
+                <Link to='/dashboard' style={{textDecoration: 'none', color: 'inherit'}}>
+                    {/* Link to the dashboard so when the logo is clicked it takes the user to the dashboard */}
+                    <button>Dashboard</button>
+                </Link>
+                <button>Save</button>
+            </div>
+        </header>
     )
 }

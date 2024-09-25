@@ -1,16 +1,15 @@
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Pushes the <h1> to the left and the button to the right */
-  padding: 1rem 2rem; /* Adjust padding if necessary */
-  background: #001f7a;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* Ensure it stays on top */
-  width: 100%; /* Ensure header takes full width of the container */
-
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes the <h1> to the left and the button to the right */
+    padding: 1rem 2rem; /* Adjust padding if necessary */
+    background: #001f7a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+    width: 100%; /* Ensure header takes full width of the container */
 }
 
 header button {
@@ -77,7 +76,7 @@ header h1 {
     color: #000;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
   .dropdown-content p {
@@ -110,12 +109,25 @@ header h1 {
     border: 1px solid #fff; /* Adjust border color as needed */
   }
 
-
 header button:hover,
 header button:focus {
     transform: scale(1.1);
     color: #001f7a;
     background: #ffffff;
+}
+
+.doc-edit-header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 130px;
+    padding-right: 140px;
+}
+
+.doc-edit-header button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
 }
 
 /* Media queries adjust sizes based on screen */
