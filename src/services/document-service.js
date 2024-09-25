@@ -1,13 +1,33 @@
 // Simulate an API call for saving
+const NODE_ENV = import.meta.env.VITE_NODE_ENV;
+
 const fakeApiCall = (value) => {
     return new Promise((resolve) => {
         setTimeout(() => resolve(value), 1000); // Simulates a 1s delay
     });
 };
 
+export const createDocument = async () =>{
+    if (NODE_ENV === 'development') {
+        return "Created";
+    }
+    try {
+        const response = await fetch(`http://localhost:8080/api/documents`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log("document is created");
+        return await response.json();
+    } catch (err) {
+        console.log(`Error creating document: ${err}`);
+    }
+}
+
 // Save handler to log the updated document (to be connected to backend later)
 export const saveDocument = async (id, data) => {
-    const NODE_ENV = import.meta.env.VITE_NODE_ENV;
     const { title, content } = data;
 
     if (NODE_ENV === 'development') {
@@ -46,7 +66,6 @@ export const getDocument = async (id) => {
 
 export const getDocumentsPreview = async (useStaticData=false) => {
     if (useStaticData) {
-        console.log("getting static data");
         return documentService();
     }
     try {
