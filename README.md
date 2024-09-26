@@ -5,7 +5,7 @@
 
 **NextJot** is a streamlined and user-friendly text editor designed to simplify document management. Whether you’re writing notes, drafting reports, or editing text, NextJot offers a responsive interface across all devices, making document creation and management effortless.
 
-Check out our deployed site here: [NextJot Live Site](https://nexjot-front.vercel.app/)  
+ 
 Read our blog article about the project: [Project Blog](https://www.linkedin.com/feed/update/urn:li:activity:7244408707306930176/)
 
 Connect with the team on LinkedIn:
